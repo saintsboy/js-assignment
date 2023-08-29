@@ -1,7 +1,5 @@
 let items;
 
-window.open("index2.html");
-
 document.addEventListener("DOMContentLoaded", () => {
   const itemsContainer = document.querySelector(".items-container");
   const itemDetails = document.querySelector(".item-details");
@@ -24,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       itemCard.innerHTML = `
                 <img src="${item.picture_url}" alt="${item.name}">
                 <h3>${item.name}</h3>
-                <p>Kaina: ${item.price} €</p>
-                <button class="view-details" data-id="${item.id}">More</button>
+                <p>Price: ${item.price} €</p>
+                <button  class="view-details" data-id="${item.id}" onclick="location.href='index2.html/?itemID=${item.id}';">More</button>
             `;
       itemsContainer.appendChild(itemCard);
     });
@@ -62,25 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const formData = new FormData(addForm);
-    const newItem = {
-      name: formData.get("name"),
-      price: parseFloat(formData.get("price")),
-      picture_url: formData.get("picture_url"),
-      details: formData.get("details"),
-      selling_point: formData.get("selling_point"),
-    };
-
-    await fetch("https://64ec6878f9b2b70f2bfa4265.mockapi.io/Items", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newItem),
-    });
-
-    successMessage.textContent = "Item added.";
-    addForm.reset();
-    displayItems();
+    window.open("index3.html");
   });
 
   displayItems();
