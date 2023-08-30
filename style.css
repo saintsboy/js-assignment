@@ -1,14 +1,32 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(168, 204, 36);
+    width: 100%;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
+.logo {
+    font-size: 3rem;
+}
+
 .items-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
+
 }
 
 .item-card {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
-    width: 300px;
+    width: 250px;
+    text-align: center;
 }
 
 
@@ -25,11 +43,12 @@
 }
 
 
-.add-item-form {
-    /* Stilius formai */
-}
-
 .success-message {
     color: green;
     margin-top: 10px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
 }

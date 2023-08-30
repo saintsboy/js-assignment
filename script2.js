@@ -10,14 +10,14 @@ window.addEventListener("load", async function () {
                     <p>Kaina: ${item.price} €</p>
                     <p>${item.details}</p>
                     <p>Pardavimo vieta: ${item.selling_point}</p>
-                    <button class="delete-item" data-id="${item.id}">Delete</button>
+                    <button class="delete-button" data-id="${item.id}">Delete</button>
                 `;
   itemsContainer.appendChild(itemDetails);
   console.log(itemDetails);
 });
 
 itemDetails.addEventListener("click", async (event) => {
-  if (event.target.classList.contains("delete-item")) {
+  if (event.target.classList.contains("delete-button")) {
     fetch(`https://64ec6878f9b2b70f2bfa4265.mockapi.io/Items/${itemId}`, {
       method: "Delete",
     });
