@@ -2,9 +2,6 @@ let items;
 
 document.addEventListener("DOMContentLoaded", () => {
   const itemsContainer = document.querySelector(".items-container");
-  const itemDetails = document.querySelector(".item-details");
-  const addForm = document.querySelector(".add-item-form");
-  const successMessage = document.querySelector(".success-message");
 
   const getItemsFromBackend = () => {
     return fetch("https://64ec6878f9b2b70f2bfa4265.mockapi.io/Items")
@@ -46,9 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
       }
     }
-  });
-  addForm.addEventListener("submit", async (event) => {
-    window.open("index3.html");
   });
 
   displayItems();

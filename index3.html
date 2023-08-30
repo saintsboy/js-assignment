@@ -9,22 +9,33 @@
 
 <body>
 
-    <form class="add-item-form">
-        <input type="text" placeholder="Name" id="name"></input>
+    <header>
+        <div class="logo">
+            Shop-app
+        </div>
 
-        <input type="text" placeholder="Price" id="price"></input>
+        <ul class="nav">
+            <li><a href="./index.html">Main Page</a></li>
+        </ul>
+    </header>
 
-        <input type="text" placeholder="Location" id="location"></input>
-
-        <input type="text" placeholder="Details" id="details"></input>
-
-        <input type="text" placeholder="Picture url" id="picture_url"></input>
-    </form>
+    <div class="add-item-form">
+        <label for="name">Name:</label>
+        <input type="text" placeholder="Name" id="name" name="name"><br><br>
+        <label for="price">Price:</label>
+        <input type="text" placeholder="Price" id="price" name="price"><br><br>
+        <label for="location">Location:</label>
+        <input type="text" placeholder="Location" id="location" name="location"><br><br>
+        <label for="details">Details:</label>
+        <input type="text" placeholder="Details" id="details" name="details"><br><br>
+        <label for="picture_url">Picture URL:</label>
+        <input type="text" placeholder="Picture url" id="picture_url" name="picture_url"><br><br>
+    </div>
 
     <div class="success-message">
     </div>
 
-    <button onclick="addForm()">submit</button>
+    <button onclick="pushItem()">submit</button>
 
     <script src="script3.js"></script>
 </body>
