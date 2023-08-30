@@ -1,11 +1,9 @@
-const itemId = url.searchParams.get("itemID");
+const itemId = new URL(document.location).searchParams.get("itemID");
 const itemsContainer = document.querySelector(".items-container");
 const itemDetails = document.querySelector(".item-details");
 
-itemsContainer.addEventListener("click", async (event) => {
-  const item = await getItemsFromBackend.then((items) =>
-    items.find((item) => item.id === itemId)
-  );
+window.addEventListener("load", async function () {
+  const item = await getItemsFromBackend();
   itemDetails.innerHTML = `
                     <img src="${item.picture_url}" alt="${item.name}">
                     <h3>${item.name}</h3>
@@ -16,6 +14,18 @@ itemsContainer.addEventListener("click", async (event) => {
                 `;
   itemsContainer.appendChild(itemDetails);
   console.log(itemDetails);
+});
+
+itemDetails.addEventListener("click", async (event) => {
+  if (event.target.classList.contains("delete-item")) {
+    fetch(`https://64ec6878f9b2b70f2bfa4265.mockapi.io/Items/${itemId}`, {
+      method: "Delete",
+    });
+    itemDetails.innerHTML = `<p>item was deleted.</p>`;
+    setTimeout(() => {
+      window.location.replace("./index.html");
+    }, 3000);
+  }
 });
 
 const getItemsFromBackend = () => {

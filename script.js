@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.picture_url}" alt="${item.name}">
                 <h3>${item.name}</h3>
                 <p>Price: ${item.price} €</p>
-                <button  class="view-details" data-id="${item.id}" onclick="location.href='index2.html/?itemID=${item.id}';">More</button>
+                <button  class="view-details" data-id="${item.id}" onclick="location.href='index2.html?itemID=${item.id}';">More</button>
             `;
       itemsContainer.appendChild(itemCard);
     });
@@ -47,18 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-
-  itemDetails.addEventListener("click", async (event) => {
-    if (event.target.classList.contains("delete-item")) {
-      const itemId = event.target.getAttribute("data-id");
-      fetch(`https://64ec6878f9b2b70f2bfa4265.mockapi.io/Items/${itemId}`, {
-        method: "Delete",
-      });
-      itemDetails.innerHTML = `<p>item was deleted.</p>`;
-      displayItems();
-    }
-  });
-
   addForm.addEventListener("submit", async (event) => {
     window.open("index3.html");
   });
